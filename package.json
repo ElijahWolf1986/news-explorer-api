@@ -1,0 +1,48 @@
+{
+  "name": "news-explorer-api-volkov",
+  "version": "1.0.0",
+  "description": "project 12 Yandex Praktikum",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Volkov Ilya",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^13.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-winston": "^4.0.5",
+    "joi-password-complexity": "^4.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "validator": "^13.1.17",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslinter": "^3.2.1",
+    "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElijahWolf1986/news-explorer-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ElijahWolf1986/news-explorer-api/bugs"
+  },
+  "homepage": "elijahwolf.site/api",
+  "keywords": [
+    "this",
+    "is",
+    "api",
+    "for",
+    "diploma",
+    "work"
+  ]
+}
