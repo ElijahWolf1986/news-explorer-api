@@ -1,14 +1,12 @@
 const router = require('express').Router();
 const { getAllArticles, createArticle, deleteArticle } = require('../controllers/articles');
 const {
-  validateCreateCard,
-  validateDeleteCard,
+  validateCreateArticle,
+  validateDeleteArticle,
 } = require('../middlewares/validationJoi');
 
 router.get('/', getAllArticles);
-
-router.post('/', createArticle); //todo add validateCreateArticle
-
-router.delete('/:articleId', deleteArticle); //todo add validateDeleteCard,
+router.post('/', validateCreateArticle, createArticle);
+router.delete('/:articleId', validateDeleteArticle, deleteArticle);
 
 module.exports = { router };

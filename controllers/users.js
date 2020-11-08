@@ -7,7 +7,7 @@ const BadRequestError = require("../errors/BadRequestError.js");
 const NotFoundError = require("../errors/NotFoundError.js");
 const ForbiddenError = require("../errors/ForbiddenError.js");
 const ConflictError = require("../errors/ConflictError.js");
-const { SECRET } = process.env;
+const { JWT_SECRET } = process.env;
 
 const getUserInfo = (req, res, next) => {
   return User.findById(req.user._id).then((user) => {
@@ -43,10 +43,9 @@ const createUser = (req, res, next) => {
               },
             })
           )
-          // eslint-disable-next-line consistent-return
           .catch((err) => {
             if (err.name === "ValidationError") {
-              return next(new BadRequestError(err.message));
+               return next(new BadRequestError(`${Object.values(err.errors).map((error) => error.message).join(', ')}`));
             }
           })
       );
@@ -67,7 +66,7 @@ const login = async (req, res, next) => {
       if (!isValidPassword)
         next(new UnauthorizedError("Неправильный логин или пароль"));
 
-      const token = jwt.sign({ _id: user._id }, SECRET, {
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
         expiresIn: "7d",
       });
 

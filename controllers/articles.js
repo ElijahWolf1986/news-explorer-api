@@ -20,7 +20,7 @@ const createArticle = (req, res, next) => {
     // eslint-disable-next-line consistent-return
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestError(err.message));
+        return next(new BadRequestError(`${Object.values(err.errors).map((error) => error.message).join(', ')}`));
       }
     });
 };
