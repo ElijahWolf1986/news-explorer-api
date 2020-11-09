@@ -43,43 +43,35 @@ const validateSignup = celebrate({
 const validateCreateArticle = celebrate({
   body: Joi.object()
     .keys({
-      keyword: Joi.string().required()
-      .messages({
+      keyword: Joi.string().required().messages({
         "string.empty": "Поле keyword должно быть заполнено",
       }),
-      title: Joi.string().required()
-      .messages({
+      title: Joi.string().required().messages({
         "string.empty": "Поле title должно быть заполнено",
       }),
-      text: Joi.string().required()
-      .messages({
+      text: Joi.string().required().messages({
         "string.empty": "Поле text должно быть заполнено",
       }),
-      date: Joi.date()
-      .max("now")
-      .required()
-      .messages({
+      date: Joi.date().max("now").required().messages({
         "date.max": "Дата статьи не должна быть из будущего",
       }),
-      source: Joi.string().required()
-      .required()
-      .messages({
+      source: Joi.string().required().required().messages({
         "string.empty": "Поле source должно быть заполнено",
       }),
       link: Joi.string()
-      .regex(urlPattern)
-      .message("Неверная ссылка поля link")
-      .required()
-      .messages({
-        "string.empty": "Поле link должно быть заполнено",
-      }),
+        .regex(urlPattern)
+        .message("Неверная ссылка поля link")
+        .required()
+        .messages({
+          "string.empty": "Поле link должно быть заполнено",
+        }),
       image: Joi.string()
-      .regex(urlPattern)
-      .message("Неверная ссылка поля image")
-      .required()
-      .messages({
-        "string.empty": "Поле image должно быть заполнено",
-      }),
+        .regex(urlPattern)
+        .message("Неверная ссылка поля image")
+        .required()
+        .messages({
+          "string.empty": "Поле image должно быть заполнено",
+        }),
     })
     .unknown(true),
 });

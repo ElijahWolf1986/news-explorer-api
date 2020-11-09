@@ -16,7 +16,7 @@ router.use("/users", auth, userRouter);
 router.use("/articles", auth, articleRouter);
 
 router.use((req, res) => {
-  throw new NotFoundError({ message: "Запрашиваемый ресурс не найден" });
+  throw new NotFoundError("Запрашиваемый ресурс не найден");
 });
 
 module.exports = router;
