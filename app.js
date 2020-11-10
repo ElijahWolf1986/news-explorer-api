@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -8,7 +9,6 @@ const { bdlocaladdress } = require('./config');
 
 const { PORT = 3000, dbaddress = bdlocaladdress } = process.env;
 const app = express();
-const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes');
 const errorHandler = require('./middlewares/error-handler');
