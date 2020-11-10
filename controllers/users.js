@@ -8,7 +8,7 @@ const NotFoundError = require('../errors/NotFoundError.js');
 const ForbiddenError = require('../errors/ForbiddenError.js');
 const ConflictError = require('../errors/ConflictError.js');
 
-const { JWT_SECRET } = process.env;
+const { JWT_SECRET = 'JWT_SECRET' } = process.env;
 
 const getUserInfo = async (req, res, next) => {
   try {
@@ -82,7 +82,7 @@ const login = async (req, res, next) => {
           httpOnly: true,
           sameSite: true,
         })
-        .send({ message: 'your cookies are baked :)' });
+        .send({ token });
     });
   } catch (err) {
     return next(

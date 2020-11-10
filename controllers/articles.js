@@ -23,7 +23,7 @@ const createArticle = async (req, res, next) => {
   } = req.body;
   const owner = req.user._id;
   try {
-    const newArticle = await Article.create({
+    await Article.create({
       keyword,
       title,
       text,
@@ -33,7 +33,11 @@ const createArticle = async (req, res, next) => {
       image,
       owner,
     });
-    return res.status(200).send({ data: newArticle });
+    return res
+      .status(200)
+      .send({
+        keyword, title, text, date, source, link, image,
+      });
   } catch (err) {
     if (err.name === 'ValidationError') {
       return next(
