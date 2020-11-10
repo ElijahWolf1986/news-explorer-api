@@ -1,5 +1,6 @@
-const { JWT_SECRET = 'JWT_SECRET' } = process.env;
-
+const { JWT_LOCAL_SECRET = 'JWT_SECRET' } = process.env;
+const { bdlocaladdress = 'mongodb://localhost:27017/mestodb' } = process.env;
 module.exports = {
-  JWT_SECRET,
+  JWT_LOCAL_SECRET,
+  bdlocaladdress,
 };

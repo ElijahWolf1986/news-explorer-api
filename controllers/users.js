@@ -7,8 +7,9 @@ const BadRequestError = require('../errors/BadRequestError.js');
 const NotFoundError = require('../errors/NotFoundError.js');
 const ForbiddenError = require('../errors/ForbiddenError.js');
 const ConflictError = require('../errors/ConflictError.js');
+const { JWT_LOCAL_SECRET } = require('../config');
 
-const { JWT_SECRET = 'JWT_SECRET' } = process.env;
+const { JWT_SECRET = JWT_LOCAL_SECRET } = process.env;
 
 const getUserInfo = async (req, res, next) => {
   try {

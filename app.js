@@ -4,8 +4,9 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
+const { bdlocaladdress } = require('./config');
 
-const { PORT = 3000, dbaddress = 'mongodb://localhost:27017/mestodb' } = process.env;
+const { PORT = 3000, dbaddress = bdlocaladdress } = process.env;
 const app = express();
 const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
