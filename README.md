@@ -18,4 +18,4 @@ Celebrate Errors: Введены кастомные ошибки для рабо
 
 Rotes: Добавлен routes/index.js для разгрузки app.js и более правильного структурирования проекта
 
-### Деплой проекта: api.volkov.students.nomoreparties.co
+### Деплой проекта: api.wolkov.students.nomoreparties.co
