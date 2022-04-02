@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const articleSchema = new mongoose.Schema({
-  keyword: {
+  name: {
     type: String,
     required: [true, "Поле keyword должно быть заполнено"],
   },
@@ -9,17 +9,9 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: [true, "Поле title должно быть заполнено"],
   },
-  text: {
+  subtitle: {
     type: String,
-    required: [true, "Поле text должно быть заполнено"],
-  },
-  date: {
-    type: Date,
-    required: [true, "Поле date должно быть заполнено"],
-  },
-  source: {
-    type: String,
-    required: [true, "Поле source должно быть заполнено"],
+    // required: [true, "Поле subtitle должно быть заполнено"],
   },
   link: {
     type: String,
@@ -41,16 +33,6 @@ const articleSchema = new mongoose.Schema({
       message: "Ссылка на изображение не верна!",
     },
   },
-  // owner: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'user',
-  //   required: [true, 'Поле owner должно быть заполнено'],
-  //   select: false,
-  // },
-  owner: {
-    type: String,
-    required: [true, "Поле owner должно быть заполнено"],
-  },
 });
 
-module.exports = mongoose.model("article", articleSchema);
+module.exports = mongoose.model("mvbarticle", articleSchema);
